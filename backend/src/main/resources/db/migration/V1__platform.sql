@@ -1,0 +1,4 @@
+create table access_grants(principal_id varchar(160) not null,project_id varchar(100) not null,permissions text not null,enabled boolean not null default true,service boolean not null default false,primary key(principal_id,project_id));
+create table audit_events(id varchar(36) primary key,project_id varchar(100) not null,action varchar(100) not null,object_id varchar(160),actor varchar(160) not null,details text not null,trace_id varchar(64) not null,occurred_at timestamptz not null);
+create index audit_project_time on audit_events(project_id,occurred_at desc);
+create table connections(id varchar(100) primary key,project_id varchar(100) not null,name varchar(160) not null,kind varchar(40) not null,mode varchar(20) not null default 'REAL',enabled boolean not null default false,endpoint varchar(1000),credential_ref varchar(160),version bigint not null default 0,updated_at timestamptz not null default current_timestamp);

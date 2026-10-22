@@ -1,0 +1,67 @@
+name: aidevops-assets
+services:
+  db:
+    image: postgres:17-alpine@sha256:1bcc18d81671b02906296aad470ec9778a6b71016ce953092024b680bad007b0
+    environment:
+      POSTGRES_DB: assets
+      POSTGRES_USER: assets
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-assets-local-only}
+    ports: ["127.0.0.1:${DB_PORT:-19384}:5432"]
+    volumes:
+      - assets-data:/var/lib/postgresql/data
+      - ./infra/init-db.sql:/docker-entrypoint-initdb.d/01-keycloak.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U assets -d assets"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.8.1@sha256:79c623a22abacf3fe6c00a5fb30f5b7843d717b234033b80995891c06116d244
+    command: ["start-dev", "--import-realm"]
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: bootstrap-admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-admin-local-only}
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://db:5432/keycloak
+      KC_DB_USERNAME: assets
+      KC_DB_PASSWORD: ${DB_PASSWORD:-assets-local-only}
+      KC_HOSTNAME: ${PUBLIC_IDENTITY_URL:-http://localhost:19383}
+      KC_HEALTH_ENABLED: "true"
+    ports: ["127.0.0.1:${IDENTITY_PORT:-19383}:8080"]
+    volumes: ["./infra/keycloak:/opt/keycloak/data/import:ro"]
+    depends_on:
+      db: {condition: service_healthy}
+  api:
+    build: {context: ., dockerfile: backend/Dockerfile}
+    image: aidevops-assets-api:1.0.0
+    environment: &backend-env
+      DB_URL: jdbc:postgresql://db:5432/assets
+      DB_USER: assets
+      DB_PASSWORD: ${DB_PASSWORD:-assets-local-only}
+      OIDC_ISSUER: ${OIDC_ISSUER:-http://localhost:19383/realms/assets}
+      OIDC_JWKS: http://keycloak:8080/realms/assets/protocol/openid-connect/certs
+      DEMO_ENABLED: ${DEMO_ENABLED:-true}
+      ASSETS_ROLE: api
+    ports: ["127.0.0.1:${API_PORT:-19381}:8081"]
+    depends_on:
+      db: {condition: service_healthy}
+  worker:
+    image: aidevops-assets-api:1.0.0
+    environment:
+      <<: *backend-env
+      ASSETS_ROLE: worker
+      PORT: 8083
+    depends_on: [api]
+  gateway:
+    build: {context: ., dockerfile: gateway/Dockerfile}
+    image: aidevops-assets-gateway:1.0.0
+    environment: {BACKEND_URL: "http://api:8081"}
+    ports: ["127.0.0.1:${GATEWAY_PORT:-19382}:8082"]
+    depends_on: [api]
+  web:
+    build: {context: ., dockerfile: frontend/Dockerfile}
+    image: aidevops-assets-web:1.0.0
+    ports: ["127.0.0.1:${WEB_PORT:-19380}:80"]
+    depends_on: [gateway, keycloak]
+volumes:
+  assets-data:

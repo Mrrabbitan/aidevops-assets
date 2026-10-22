@@ -1,0 +1,19 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: assets-gateway
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: assets-api
+              uri: ${BACKEND_URL:http://localhost:8081}
+              predicates:
+                - Path=/api/**,/mcp
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

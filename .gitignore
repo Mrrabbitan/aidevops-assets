@@ -1,0 +1,21 @@
+node_modules/
+dist/
+target/
+.env
+.env.*
+!.env.example
+secrets/
+backups/
+playwright-report/
+test-results/
+.DS_Store
+tests/e2e/results/
+tests/e2e/report/
+*.tokens.json
+
+__pycache__/
+*.pyc
+
+# Versioned, credential-free verification summaries
+!docs/test-results/
+!docs/test-results/*.json

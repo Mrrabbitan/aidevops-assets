@@ -1,0 +1,169 @@
+{
+  "realm": "assets",
+  "enabled": true,
+  "displayName": "AIDevOps 资产台账 · 本地开发身份",
+  "registrationAllowed": false,
+  "resetPasswordAllowed": false,
+  "loginWithEmailAllowed": false,
+  "sslRequired": "external",
+  "roles": {
+    "realm": [
+      {
+        "name": "admin"
+      },
+      {
+        "name": "ops"
+      },
+      {
+        "name": "developer"
+      },
+      {
+        "name": "qa"
+      },
+      {
+        "name": "project"
+      }
+    ]
+  },
+  "users": [
+    {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "username": "admin",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "admin",
+      "lastName": "演示用户",
+      "email": "admin@assets.local",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Admin-local-2026!",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "admin"
+      ]
+    },
+    {
+      "id": "22222222-2222-4222-8222-222222222222",
+      "username": "ops",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "ops",
+      "lastName": "演示用户",
+      "email": "ops@assets.local",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Demo-local-2026!",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "ops"
+      ]
+    },
+    {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "username": "developer",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "developer",
+      "lastName": "演示用户",
+      "email": "developer@assets.local",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Demo-local-2026!",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "developer"
+      ]
+    },
+    {
+      "id": "44444444-4444-4444-8444-444444444444",
+      "username": "qa",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "qa",
+      "lastName": "演示用户",
+      "email": "qa@assets.local",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Demo-local-2026!",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "qa"
+      ]
+    },
+    {
+      "id": "55555555-5555-4555-8555-555555555555",
+      "username": "project",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "project",
+      "lastName": "演示用户",
+      "email": "project@assets.local",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Demo-local-2026!",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "project"
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "assets-web",
+      "name": "资产台账 Web",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "redirectUris": [
+        "http://localhost:19380/*",
+        "http://localhost:5173/*",
+        "http://localhost:19385/*"
+      ],
+      "webOrigins": [
+        "http://localhost:19380",
+        "http://localhost:5173",
+        "http://localhost:19385"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "http://localhost:19380/*##http://localhost:5173/*##http://localhost:19385/*"
+      },
+      "defaultClientScopes": [
+        "web-origins",
+        "acr",
+        "profile",
+        "roles",
+        "email",
+        "basic"
+      ],
+      "protocolMappers": [
+        {
+          "name": "assets-api-audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "config": {
+            "included.custom.audience": "assets-api",
+            "id.token.claim": "false",
+            "access.token.claim": "true"
+          }
+        }
+      ]
+    }
+  ]
+}

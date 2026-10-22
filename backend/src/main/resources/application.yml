@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: aidevops-assets
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:19384/assets}
+    username: ${DB_USER:assets}
+    password: ${DB_PASSWORD:assets-local-only}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 21MB
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${OIDC_ISSUER:http://localhost:19383/realms/assets}
+          jwk-set-uri: ${OIDC_JWKS:http://localhost:19383/realms/assets/protocol/openid-connect/certs}
+server:
+  port: ${PORT:8081}
+  error:
+    include-message: never
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+assets:
+  role: ${ASSETS_ROLE:api}
+  demo-enabled: ${DEMO_ENABLED:false}
+  audience: assets-api
+  cors-origins: ${CORS_ORIGINS:http://localhost:19380,http://localhost:19385,http://localhost:5173}
+
+springdoc:
+  api-docs:
+    path: /api/v1/openapi

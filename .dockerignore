@@ -1,0 +1,9 @@
+**/node_modules
+**/target
+**/dist
+.git
+.env
+backups
+secrets
+**/test-results
+**/playwright-report

@@ -1,0 +1,2 @@
+create table asset_relationships(id varchar(36) primary key,project_id varchar(100) not null,source_id varchar(80) not null references assets(id),target_id varchar(80) not null references assets(id),type varchar(40) not null,mode varchar(20) not null,version bigint not null default 1,created_at timestamptz not null default current_timestamp,check(source_id<>target_id),unique(project_id,source_id,target_id,type));
+create index relation_project on asset_relationships(project_id,source_id,target_id);

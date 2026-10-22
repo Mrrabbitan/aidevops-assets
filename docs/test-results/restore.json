@@ -1,0 +1,50 @@
+[
+  {
+    "table": "assets.assets",
+    "originalCount": 13,
+    "restoredCount": 13,
+    "status": "PASS"
+  },
+  {
+    "table": "assets.tasks",
+    "originalCount": 12,
+    "restoredCount": 12,
+    "status": "PASS"
+  },
+  {
+    "table": "assets.task_runs",
+    "originalCount": 10,
+    "restoredCount": 10,
+    "status": "PASS"
+  },
+  {
+    "table": "assets.alarms",
+    "originalCount": 3,
+    "restoredCount": 3,
+    "status": "PASS"
+  },
+  {
+    "table": "assets.access_grants",
+    "originalCount": 7,
+    "restoredCount": 7,
+    "status": "PASS"
+  },
+  {
+    "table": "keycloak.realm",
+    "originalCount": 2,
+    "restoredCount": 2,
+    "status": "PASS"
+  },
+  {
+    "table": "keycloak.user_entity",
+    "originalCount": 6,
+    "restoredCount": 6,
+    "status": "PASS"
+  },
+  {
+    "table": "keycloak.client",
+    "originalCount": 14,
+    "restoredCount": 14,
+    "status": "PASS"
+  }
+]

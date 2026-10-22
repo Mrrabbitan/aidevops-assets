@@ -1,0 +1,8 @@
+{
+  "postgres:17-alpine": "sha256:1bcc18d81671b02906296aad470ec9778a6b71016ce953092024b680bad007b0",
+  "quay.io/keycloak/keycloak:26.8.1": "sha256:79c623a22abacf3fe6c00a5fb30f5b7843d717b234033b80995891c06116d244",
+  "eclipse-temurin:21-jre-jammy": "sha256:affcab5356e1270ac35d2361ee83135af2f03e8d580eca78a6d5d6fdbf048db0",
+  "node:24.19.0-alpine": "sha256:d32cdf619f63fe0471182d08996dd516c6275bb5fd31ae06e55a570bd9e1ad43",
+  "nginx:stable-alpine": "sha256:c59d1f8b1e0e42da75be973424cd72e23f7f8adfb54e982f4d1cd0216a5a5576",
+  "maven:3.9.11-eclipse-temurin-21": "sha256:6fdc855a6ed81d288ca7ca37ac6ff5e9308b612485c0801d70b25a858c83d237"
+}
