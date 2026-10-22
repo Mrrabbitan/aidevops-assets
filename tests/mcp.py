@@ -22,7 +22,7 @@ def client(name,pw):
  rpc(token,{'jsonrpc':'2.0','method':'notifications/initialized'},sid,True)
  return token,sid
 
-a,sid=client('admin','Admin-local-2026!')
+a,sid=client('admin','123456')
 catalog,_=rpc(a,{'jsonrpc':'2.0','id':2,'method':'tools/list','params':{}},sid)
 assert 'assets_search' in [t['name'] for t in catalog['result']['tools']]
 results.append({'name':'official_sdk_handshake_and_catalog','status':'PASS'})

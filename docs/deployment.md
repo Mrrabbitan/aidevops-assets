@@ -12,7 +12,7 @@ cp .env.example .env
 docker compose ps
 ```
 
-启动脚本执行 `docker compose up -d --build`，从源码构建 API、Gateway、Web，创建 PostgreSQL 持久卷并导入开发 realm。数据库和依赖服务就绪后，访问 [资产台账](http://localhost:19380)。开发账号 `admin / Admin-local-2026!`、`ops / Demo-local-2026!`；它们只属于随工程提供的本地开发身份环境。
+启动脚本执行 `docker compose up -d --build`，从源码构建 API、Gateway、Web，创建 PostgreSQL 持久卷并导入开发 realm。数据库和依赖服务就绪后，访问 [资产台账](http://localhost:19380)。开发账号 `admin / 123456`、`ops / Demo-local-2026!`；它们只属于随工程提供的本地开发身份环境。
 
 | 地址 | 用途 |
 | --- | --- |

@@ -181,7 +181,7 @@ def main(argv=None):
     realm = request(IDP + "/admin/realms/assets", token=master)
     if realm.get("displayName") != "AIDevOps 资产台账 · 本地开发身份":
         raise SeedError("Realm is not this project's development fixture.")
-    platform_admin = login("assets", "assets-web", "admin", os.getenv("ASSETS_ADMIN_PASSWORD", "Admin-local-2026!"))
+    platform_admin = login("assets", "assets-web", "admin", os.getenv("ASSETS_ADMIN_PASSWORD", "123456"))
     profile = request(API + "/api/v1/auth/me", token=platform_admin)
     if profile.get("subject") != "11111111-1111-4111-8111-111111111111" or "demo" not in profile.get("projects", []):
         raise SeedError("Unexpected platform development admin identity.")
@@ -195,7 +195,7 @@ def main(argv=None):
         username = f"load-{index:04d}"
         if index % 25 == 1:
             master = login("master", "admin-cli", os.getenv("ASSETS_KC_ADMIN", "bootstrap-admin"), os.getenv("KEYCLOAK_ADMIN_PASSWORD", "admin-local-only"))
-            platform_admin = login("assets", "assets-web", "admin", os.getenv("ASSETS_ADMIN_PASSWORD", "Admin-local-2026!"))
+            platform_admin = login("assets", "assets-web", "admin", os.getenv("ASSETS_ADMIN_PASSWORD", "123456"))
         found = request(IDP + "/admin/realms/assets/users?" + urllib.parse.urlencode({"username": username, "exact": "true"}), token=master)
         if len(found) > 1:
             raise SeedError("Ambiguous existing load user refused.")

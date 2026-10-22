@@ -8,7 +8,7 @@ ATTEMPT=0
 while [ "$ATTEMPT" -lt 90 ]; do
   API_STATUS=$(curl -s --max-time 2 -o /dev/null -w '%{http_code}' "http://$WEB_ADDRESS/api/v1/auth/me" || true)
   if [ "$API_STATUS" = "401" ] && curl -fsS --max-time 2 "http://$IDENTITY_ADDRESS/realms/assets/.well-known/openid-configuration" >/dev/null 2>&1; then
-    printf '\n资产台账：http://%s\n开发账号：admin / Admin-local-2026!；ops / Demo-local-2026!\n' "localhost:${WEB_ADDRESS##*:}"
+    printf '\n资产台账：http://%s\n开发账号：admin / 123456；ops / Demo-local-2026!\n' "localhost:${WEB_ADDRESS##*:}"
     exit 0
   fi
   ATTEMPT=$((ATTEMPT + 1))

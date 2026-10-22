@@ -27,7 +27,7 @@ cp .env.example .env
 
 | 账号 | 开发密码 | 当前初始平台权限 |
 | --- | --- | --- |
-| `admin` | `Admin-local-2026!` | `demo` 和 `sandbox` 项目全部平台权限，包含连接与授权管理 |
+| `admin` | `123456` | `demo` 和 `sandbox` 项目全部平台权限，包含连接与授权管理 |
 | `ops` | `Demo-local-2026!` | `demo` 项目资产/任务维护、执行、生产确认、告警规则与观测维护，以及读取权限 |
 | `developer` | `Demo-local-2026!` | `demo` 项目读取权限 |
 | `qa` | `Demo-local-2026!` | `demo` 项目读取权限 |

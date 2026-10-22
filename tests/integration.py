@@ -32,7 +32,7 @@ def check(name,fn):
 def main():
     global A,V
     check('unauthenticated_api_rejected',lambda:call('/api/v1/auth/me',expected=(401,)))
-    A=login('admin',os.getenv('ASSETS_ADMIN_PASSWORD','Admin-local-2026!'))
+    A=login('admin',os.getenv('ASSETS_ADMIN_PASSWORD','123456'))
     V=login('developer',os.getenv('ASSETS_VIEWER_PASSWORD','Demo-local-2026!'))
     profile=check('keycloak_identity_and_project_grants',lambda:api('/auth/me'))
     assert profile['subject']=='11111111-1111-4111-8111-111111111111' and 'demo' in profile['projects']

@@ -44,7 +44,7 @@ HTTP 检查覆盖：无令牌/无效令牌拒绝、项目范围与只读权限�
 python3 tests/integration.py
 python3 tests/mcp.py
 E2E_BROWSER_CHANNEL=chrome E2E_BASE_URL=http://localhost:19380 \
-  E2E_PASSWORD='Admin-local-2026!' npm --prefix frontend run test:e2e
+  E2E_PASSWORD='123456' npm --prefix frontend run test:e2e
 ```
 
 浏览器测试需本机 Chrome 或安装 Playwright 浏览器，Node 版本需符合 `frontend/package.json`。`scripts/test.sh` 明确准备专用数据库；不带数据库配置直接运行 Maven 时会跳过 PostgreSQL 组，不能复用本次“0 跳过”的结论。备份恢复操作见部署文档，覆盖业务和身份数据库。集成测试会保留明确标记的测试台账和审计，以便复查。
@@ -57,3 +57,9 @@ E2E_BROWSER_CHANNEL=chrome E2E_BASE_URL=http://localhost:19380 \
 - **正式验收待完成**：200 有效在线、40 有效 QPS、网页 1.5 秒指标未执行验收负载；40TB、国产目标环境、多浏览器、安全评测及正式签审需现场独立验证。当前没有正式安全渗透或全依赖漏洞扫描结论。
 
 该报告支持当前本地子系统开发交付，不是整个 AIDevOps 平台或现场全部 SRS 条款的合格证书。
+
+## 公开仓库提交前复核
+
+本次补充接口说明、外部系统接入预留与本地执行手册；将首次安装配置、运行中的本地业务账号以及验证脚本统一为 `admin / 123456`。新增 `reset-local-admin.py`，核验本工程容器归属和环回地址后更新已有账号，不替换数据库。
+
+已用新密码完成正常 OIDC 浏览器登录及七类页面回归，重新执行后端 67 项（含 6 项 PostgreSQL 场景）、HTTP 45 项、MCP 4 项与生成器离线 5 项，全部通过。前端生产构建和生成类型检查通过。在线 OpenAPI 的 47 条路径已重新导出，包含 `bearerAuth` 安全方案；认证读取成功，无令牌请求仍返回 401。既有前端单元测试与备份恢复记录保留其原执行证据。

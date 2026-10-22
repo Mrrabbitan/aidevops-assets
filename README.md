@@ -14,11 +14,13 @@
 
 | 开发账号 | 密码 | 项目内默认权限 |
 | --- | --- | --- |
-| admin | Admin-local-2026! | demo、sandbox 内的管理权限 |
+| admin | 123456 | demo、sandbox 内的管理权限 |
 | ops | Demo-local-2026! | demo 运维与发布确认 |
 | developer、qa、project | Demo-local-2026! | demo 查看 |
 
 这些账号只存在于本工程开发 Keycloak。生产配置不运行开发身份源、不创建演示授权。
+
+已有安装更新管理员密码时，保持服务运行，执行 `python3 scripts/reset-local-admin.py`；该步骤保留资产数据。完整步骤见[本地执行手册](docs/local-runbook.md)。
 
 ## 已实现的边界
 
@@ -53,6 +55,7 @@ cd frontend
 npm ci
 npm test
 npm run build
+cd ..
 
 # 完整后端数据库检查与前端构建
 ./scripts/test.sh
@@ -68,7 +71,9 @@ python3 tests/mcp.py
 
 - [整体架构](docs/architecture.md)与[数据设计](docs/data-design.md)
 - [使用说明](docs/user-guide.md)与[部署、备份恢复](docs/deployment.md)
-- [OpenAPI 契约](docs/openapi.json)与[21条 CAP-05 需求追踪](docs/requirements-traceability.md)
+- [本地执行手册](docs/local-runbook.md)：完整启动、本地开发、验证、日志与常见错误
+- [接口开发与联调说明](docs/api-guide.md)、[OpenAPI 契约](docs/openapi.json)与[外部系统接入预留](docs/integrations.md)
+- [21条 CAP-05 需求追踪](docs/requirements-traceability.md)
 - [测试报告](docs/test-report.md)与[性能验证说明](docs/performance.md)
 
 完整的21条需求追踪分别记录本地业务、适配契约、模拟验证与真实联调状态。本工程交付不等同于整个 AIDevOps 平台、学校现场国产环境或40TB资源验收。

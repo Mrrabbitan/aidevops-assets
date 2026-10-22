@@ -1,126 +1,126 @@
 {
-  "run": "aa1adff2",
-  "timestamp": "2026-10-22T12:44:27.256754+00:00",
+  "run": "3cffd308",
+  "timestamp": "2026-10-22T13:56:03.102850+00:00",
   "results": [
     {
       "name": "unauthenticated_api_rejected",
       "status": "PASS",
-      "seconds": 0.045
+      "seconds": 0.047
     },
     {
       "name": "keycloak_identity_and_project_grants",
       "status": "PASS",
-      "seconds": 0.014
+      "seconds": 0.037
     },
     {
       "name": "invalid_token_rejected",
       "status": "PASS",
-      "seconds": 0.009
+      "seconds": 0.013
     },
     {
       "name": "cross_project_read_denied",
       "status": "PASS",
-      "seconds": 0.043
+      "seconds": 0.047
     },
     {
       "name": "readonly_write_denied",
       "status": "PASS",
-      "seconds": 0.101
+      "seconds": 0.207
     },
     {
       "name": "simulated_discovery_persisted",
       "status": "PASS",
-      "seconds": 0.169
+      "seconds": 0.246
     },
     {
       "name": "version_bound_asset_admission",
       "status": "PASS",
-      "seconds": 0.025
+      "seconds": 0.045
     },
     {
       "name": "stale_asset_version_rejected",
       "status": "PASS",
-      "seconds": 0.014
+      "seconds": 0.021
     },
     {
       "name": "real_discovery_not_configured",
       "status": "PASS",
-      "seconds": 0.011
+      "seconds": 0.017
     },
     {
       "name": "asset_full_fields_persisted",
       "status": "PASS",
-      "seconds": 0.052
+      "seconds": 0.093
     },
     {
       "name": "physical_serial_and_mac_persisted",
       "status": "PASS",
-      "seconds": 0.03
+      "seconds": 0.048
     },
     {
       "name": "duplicate_serial_rejected",
       "status": "PASS",
-      "seconds": 0.022
+      "seconds": 0.029
     },
     {
       "name": "normalized_mac_conflict_rejected",
       "status": "PASS",
-      "seconds": 0.015
+      "seconds": 0.023
     },
     {
       "name": "invalid_mac_rejected",
       "status": "PASS",
-      "seconds": 0.013
+      "seconds": 0.017
     },
     {
       "name": "same_name_different_resource_allowed",
       "status": "PASS",
-      "seconds": 0.027
+      "seconds": 0.041
     },
     {
       "name": "relationship_creation",
       "status": "PASS",
-      "seconds": 0.021
+      "seconds": 0.025
     },
     {
       "name": "relationship_version_delete",
       "status": "PASS",
-      "seconds": 0.016
+      "seconds": 0.018
     },
     {
       "name": "sync_diff_preview",
       "status": "PASS",
-      "seconds": 0.028
+      "seconds": 0.046
     },
     {
       "name": "sync_stale_preview_rejected",
       "status": "PASS",
-      "seconds": 0.028
+      "seconds": 0.026
     },
     {
       "name": "sync_confirm_preserves_manual_owner",
       "status": "PASS",
-      "seconds": 0.036
+      "seconds": 0.035
     },
     {
       "name": "csv_formula_injection_escaped",
       "status": "PASS",
-      "seconds": 0.032
+      "seconds": 0.045
     },
     {
       "name": "xlsx_export_generated",
       "status": "PASS",
-      "seconds": 0.739
+      "seconds": 0.777
     },
     {
       "name": "csv_import_row_validation",
       "status": "PASS",
-      "seconds": 0.039
+      "seconds": 0.033
     },
     {
       "name": "partial_import_truthful_result",
       "status": "PASS",
-      "seconds": 0.028
+      "seconds": 0.025
     },
     {
       "name": "observation_creates_real_persisted_simulation_alarm",
@@ -130,67 +130,67 @@
     {
       "name": "alarm_handle_does_not_fabricate_recovery",
       "status": "PASS",
-      "seconds": 0.023
+      "seconds": 0.016
     },
     {
       "name": "per_recipient_notification_records",
       "status": "PASS",
-      "seconds": 0.014
+      "seconds": 0.012
     },
     {
       "name": "notification_read_is_separate_from_alarm_recovery",
       "status": "PASS",
-      "seconds": 0.012
+      "seconds": 0.021
     },
     {
       "name": "durable_cluster_run_and_idempotent_receipt",
       "status": "PASS",
-      "seconds": 0.698
+      "seconds": 0.692
     },
     {
       "name": "vm_host_capacity_and_durable_run",
       "status": "PASS",
-      "seconds": 1.01
+      "seconds": 1.002
     },
     {
       "name": "environment_dependency_and_run",
       "status": "PASS",
-      "seconds": 0.762
+      "seconds": 1.007
     },
     {
       "name": "production_execution_requires_confirmation",
       "status": "PASS",
-      "seconds": 0.025
+      "seconds": 0.021
     },
     {
       "name": "frozen_production_plan_simulated_execution",
       "status": "PASS",
-      "seconds": 1.009
+      "seconds": 1.007
     },
     {
       "name": "distribution_dependency_and_run",
       "status": "PASS",
-      "seconds": 1.011
+      "seconds": 0.987
     },
     {
       "name": "real_execution_never_reports_success_without_adapter",
       "status": "PASS",
-      "seconds": 0.015
+      "seconds": 0.013
     },
     {
       "name": "database_filter_sort_and_pagination",
       "status": "PASS",
-      "seconds": 0.027
+      "seconds": 0.021
     },
     {
       "name": "invalid_sort_rejected",
       "status": "PASS",
-      "seconds": 0.013
+      "seconds": 0.01
     },
     {
       "name": "notification_test_persists_receipts",
       "status": "PASS",
-      "seconds": 0.017
+      "seconds": 0.012
     },
     {
       "name": "durable_scoped_discovery_collection",
@@ -207,22 +207,22 @@
     {
       "name": "dashboard_aggregates_persisted_records",
       "status": "PASS",
-      "seconds": 0.036
+      "seconds": 0.021
     },
     {
       "name": "audit_trail_available",
       "status": "PASS",
-      "seconds": 0.017
+      "seconds": 0.012
     },
     {
       "name": "openapi_contract_generated",
       "status": "PASS",
-      "seconds": 0.676
+      "seconds": 0.018
     },
     {
       "name": "mcp_requires_authentication",
       "status": "PASS",
-      "seconds": 0.011
+      "seconds": 0.009
     }
   ]
 }

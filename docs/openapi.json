@@ -1,13 +1,19 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "OpenAPI definition",
-    "version": "v0"
+    "title": "AIDevOps 资产台账 API",
+    "description": "项目范围受控的资产、任务、观测与告警接口；真实外部连接尚待现场联调。",
+    "version": "v1"
   },
   "servers": [
     {
       "url": "http://api:8081",
       "description": "Generated server url"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
     }
   ],
   "paths": {
@@ -2605,6 +2611,13 @@
             "format": "int32"
           }
         }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   }
